@@ -1,0 +1,61 @@
+.box-empresa {
+    display: inline-block;
+    text-align: center;
+    text-align: -webkit-center;
+}
+body>div.content>div>div.col-sm-12.mt-4>h4 {
+    margin-bottom: 20px;
+}
+#agenda_wrapper>div:nth-child(1) {
+    margin-top: -57px
+}
+
+body>div.content>div>div.col-sm-12.mt-4>button.topo {
+    position: relative;
+    z-index: 4;
+}
+
+#agenda_filter>label {
+    width: 50%;
+    float: right;
+}
+#agenda_length>label {
+    float: left;
+}
+
+#agenda_paginate>ul {
+    float: right;
+}
+
+table a,
+table a:hover {
+
+    text-decoration: none;
+    padding-right: 10px;
+}
+
+table a:nth-of-type(1) {
+	color: #5FB68C;
+}
+table a:nth-of-type(2){
+    color: rgb(110, 107, 107);
+}
+
+#nameEmp,
+#saldoEmp,
+#nameServ,
+#valServ,
+#situServ {
+    float: left;
+}
+
+.page-item.active .page-link {
+    background: #5FB68C !important;
+    border-color: #5FB68C !important;
+    color: #fff !important;
+}
+.page-link {
+    color: #5FB68C !important;
+
+}
+

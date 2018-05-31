@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+    
+    <link href="{{BASE_URL}}/src/assets/css/lib/bootstrap.min.css" rel="stylesheet">
+    <link type="image/x-icon" href="{{BASE_URL}}/src/assets/img/icon.png" rel="shortcut icon">
+    <link type="stylesheet" href="{{BASE_URL}}/src/assets/css/lib/boostrap-glyphicons.css">
+    <link type="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">
+    <link type="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="{{BASE_URL}}/src/assets/css/empresa.css">
+    <link rel="stylesheet" href="{{BASE_URL}}/src/assets/css/template.css">
+    <script>
+        BASE_URL = '{{BASE_URL}}';
+    </script>
+    <title>{{title}}</title>
+</head>
+<body>
+    <!-- início do preloader -->
+    <div id="preloader">
+        <div class="inner">
+            <div class="bolas">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <!-- fim do preloader -->
+    <!-- Menu de navegação -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/"><img src="{{BASE_URL}}/src/assets/img/logo2.png" alt="Logomarca: XPTO"></a>
+        <button class="navbar-toggler" data-target="#navbarText" data-toggle="collapse" type="button" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                {% if adm == true %}
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/empresa">Empresas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/servico">Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/usuario">Usuários</a>
+                    </li>
+                {% endif %}
+            </ul>
+            <span class="navbar-text">
+                <a href="#" data-toggle="modal" data-target="#sair" class="user">Sair</a>     
+            </span>
+        </div>
+    </nav> 
+    <!-- /Menu de navegação -->
+    <!-- Conteudo da pagina -->
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <!-- /Conteudo da pagina -->
+    <!-- Modal de mensagem -->
+    {% if m_bool == true %}
+    <div class="modal fade" id="message" role="dialog" aria-hidden="true" aria-labelledby="excluiTranLabel" tabindex="-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="excluiTranLabel">{{message}}</h5>
+                    <button class="close" data-dismiss="modal" type="button" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-dismiss="modal" type="button">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <!-- Modal de mensagem -->
+    <!-- Modal de logout -->
+    <div class="modal fade" id="sair" role="dialog" aria-hidden="true" aria-labelledby="sairLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="sairLabel">Atenção</h5>
+                <button class="close" data-dismiss="modal" type="button" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Tem certeza que deseja sair?
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-dismiss="modal" type="button">Cancelar</button>
+                <a href="/agenda/logout" class="btn btn-success">Sair</a>
+            </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{BASE_URL}}/src/assets/js/lib/jquery-3.1.0.min.js"></script>
+    <script src="{{BASE_URL}}/src/assets/js/lib/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+    <script src="{{BASE_URL}}/src/assets/js/agenda.js"></script>
+    <script src="{{BASE_URL}}/src/assets/js/jquery.btechco.excelexport.js"></script>
+    <script src="{{BASE_URL}}/src/assets/js/jquery.base64.js"></script>
+    <script>
+       $(window).on('load', function () {
+            $('#preloader .inner').fadeOut();
+            $('#preloader').delay(350).fadeOut('slow'); 
+            $('body').delay(350).css({'overflow': 'visible'});
+        })
+    </script>
+
+</body>
+</html>

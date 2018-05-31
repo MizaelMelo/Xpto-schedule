@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+    <link rel="stylesheet" href="{{BASE_URL}}/src/assets/css/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="{{BASE_URL}}/src/assets/css/login.css">
+    <link rel="stylesheet" href="{{BASE_URL}}/src/assets/css/animate.css">
+    <link rel="shortcut icon" href="{{BASE_URL}}/src/assets/img/icon.png" type="image/x-icon">
+    <title>XPTO | Efetue o Login</title>
+</head>
+<body>
+    <section>
+        <article>
+            <figure>
+                <img class="logo" src="{{BASE_URL}}/src/assets/img/logo.png" alt="Logomarca da empresa">
+            </figure>
+        </article>
+
+        <main>
+            <div class="form">
+                <form method="POST" action="{{url}}">
+                    <div class="message" id="msg_email">
+                        <span class="text-danger text-right">{{msg}}</span>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="form-group">
+                            <input type="text" name="email" placeholder="E-mail">
+                        </div>
+                    </div>
+                    <div class="messagePass" id="msg_pass">
+                        <span class="text-danger text-right"></span>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="form-group">
+                            <input type="password" name="password" placeholder="Senha">
+                        </div>
+                    </div>
+                    <input type="hidden" name="t_token" value="{{t_token}}">
+                    <button type="submit" class="button">Entrar</button>
+                </form>    
+            </div>
+        </main>
+    </section>
+
+    <script src="{{BASE_URL}}/src/assets/js/lib/jquery-3.1.0.min.js"></script>
+    <script src="{{BASE_URL}}/src/assets/js/lib/bootstrap.min.js"></script>
+    <script src="{{BASE_URL}}/src/assets/js/tprm-login.js"></script>
+</body>
+</html>
