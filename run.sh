@@ -15,5 +15,8 @@ cd $(pwd)/ && php artisan serve > ../xpto.log & >/dev/null
 echo Instalando as dependencias da aplicacao.........
 cd ../xpto-app && composer install
 
+start "chrome.exe" "http://localhost"
+
 echo Inicializando o servico da aplicacao na porta 80
 cd $(pwd)/ && php -S localhost:80
+

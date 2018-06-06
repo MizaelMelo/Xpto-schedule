@@ -18,20 +18,20 @@ Class Api {
         return $array;
     }
  
-public function update($data, $url){
-    $array = array();
+    public function update($data, $url){
+        $array = array();
+            
+            $ch = curl_init($url);                                                            
+                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");                                                                     
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch, CURLOPT_POSTFIELDS,http_build_query($data));                                                                    
         
-        $ch = curl_init($url);                                                            
-            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");                                                                     
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS,http_build_query($data));                                                                    
-    
-    $array = curl_exec($ch);
+        $array = curl_exec($ch);
 
-    curl_close($ch);
+        curl_close($ch);
 
-    return $array;
-}
+        return $array;
+    }   
 /**
  * Função para cadastro de usuários
  *

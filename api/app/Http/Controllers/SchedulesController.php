@@ -35,6 +35,7 @@ class SchedulesController extends Controller
                     'birth_date' => $request->birth_date,
                     'address' => $request->address
                 ]);
+
         } catch (QueryException $e) {
             return $e->getMessage();
         }

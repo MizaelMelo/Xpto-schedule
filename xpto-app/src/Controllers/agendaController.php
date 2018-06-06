@@ -70,8 +70,10 @@ Class agendaController extends Controller
 
 			$api = new Api;
 			$response = $api->send($dados, API_URL . 'schedule');
+
+			$res = json_decode($response);
 			
-			if (strpos($response, 'SQLSTATE') == 0)
+			if (empty($res))
 			{
 				$message = 'O e-mail informado já existe';
 				$this->index($message);
