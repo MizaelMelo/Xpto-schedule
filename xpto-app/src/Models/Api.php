@@ -6,10 +6,10 @@ Class Api {
 
     public function envia($url, $type){
         $array = array();
-          
+        
             $ch = curl_init($url);                                                            
-                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $type);                                                                     
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                      
+                  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $type);                                                                     
+                  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                      
         
         $array = curl_exec($ch);
         

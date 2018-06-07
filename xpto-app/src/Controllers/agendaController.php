@@ -2,8 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\Api,
-	App\Core\Controller, 
+use App\Core\Controller, 
 	Twig_Loader_Filesystem, 
 	Twig_Environment;
 
@@ -25,8 +24,7 @@ Class agendaController extends Controller
 
     public function index($msg = '')
     {
-		$api = new Api;
-		$json = $api->envia(API_URL . 'schedule', 'GET');
+		$json = $this->getInstance()->envia(API_URL . 'schedule', 'GET');
 		$this->data['emp'] = json_decode($json);
 		$this->data['BASE_URL'] = BASE_URL; 
 
@@ -50,8 +48,7 @@ Class agendaController extends Controller
 				'address' => addslashes($_POST['end'])
 			];
 
-			$api = new Api;
-			$api->update($dados, API_URL . "schedule/{$id[0]}");
+			$this->getInstance()->update($dados, API_URL . "schedule/{$id[0]}");
 
 			header('Location: ' . BASE_URL);
 		}
@@ -68,8 +65,7 @@ Class agendaController extends Controller
 				'email' => addslashes($_POST['email'])
 			];
 
-			$api = new Api;
-			$response = $api->send($dados, API_URL . 'schedule');
+			$response = $this->getInstance()->send($dados, API_URL . 'schedule');
 
 			$res = json_decode($response);
 			
@@ -86,8 +82,7 @@ Class agendaController extends Controller
 
 	public function delete($id)
 	{
-		$api = new Api;
-		$api->envia(API_URL . "schedule/{$id[0]}", 'DELETE');
+		$this->getInstance()->envia(API_URL . "schedule/{$id[0]}", 'DELETE');
 
 		$message = 'Usuário excluido com sucesso';
 

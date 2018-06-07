@@ -4,7 +4,8 @@ namespace App\Core;
 
 use Twig_Loader_Filesystem, 
 	Twig_Environment,
-	Twig_Extension_Debug;
+	Twig_Extension_Debug,
+	App\Models\Api;
 
 Class Controller
 {
@@ -22,12 +23,18 @@ Class Controller
 	 *
 	 * @var object
 	 */
-	protected $dBase;
+	protected static $instance = null;
 
-    public function __construct(){
-		$this->dBase = new DataBase;
+    public function __construct(){}
 
-		return $this->dBase;
+	public static function getInstance()
+	{
+		if (!isset(self::$instance))
+		{
+			self::$instance = new Api;
+		}
+
+		return self::$instance;
 	}
 
     protected function getData()
